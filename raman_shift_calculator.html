@@ -6,48 +6,49 @@
 <h1 align = center>Lightnovo Raman Shift Calculator</h1>
 <center>
 
-
-<script type="text/javascript">
-function event1(event){ wl_to_wn(myform);  }
-</script>
-
-<script type="text/javascript">
-function event2(event){wn_to_wl(myform);  }
-</script>
-
 <script type="text/javascript">
 function wn_to_wl(form) {
-wlLaser=eval(form.wlLaser.value);
-wn1=eval(form.wn1.value);
-wn2=eval(form.wn2.value);
-wnres=eval(form.wnres.value);
-wl01=Math.round(10*(1/((1/wlLaser)-(wn1/10000000))))/10;
-wl02=Math.round(10*(1/((1/wlLaser)-(wn2/10000000))))/10;
-wlres=Math.round(100*(wnres*wl01*wl01/10000000))/100;
-form.wl1.value = wl01;
-form.wl2.value = wl02;
-form.wlres.value = wlres;
-
+	wlLaser=eval(form.wlLaser.value);
+	wn1=eval(form.wn1.value);
+	wn2=eval(form.wn2.value);
+	wnres=eval(form.wnres.value);
+	wl01=Math.round(10*(1/((1/wlLaser)-(wn1/10000000))))/10;
+	wl02=Math.round(10*(1/((1/wlLaser)-(wn2/10000000))))/10;
+	wlres=Math.round(100*(wnres*wl01*wl01/10000000))/100;
+	form.wl1.value = wl01;
+	form.wl2.value = wl02;
+	form.wlres.value = wlres;
 }
-
 </script>
 
 <script type="text/javascript">
 function wl_to_wn(form) {
-wlLaser=eval(form.wlLaser.value);
-wl01=eval(form.wl1.value);
-wl02=eval(form.wl2.value);
-wlres=eval(form.wlres.value);
-wn1=Math.round(10000000*((1/wlLaser)-(1/wl01)));
-wn2=Math.round(10000000*((1/wlLaser)-(1/wl02)));
-wnres=Math.round(wlres*10000000/(wl01*wl01));
-form.wn1.value = wn1;
-form.wn2.value = wn2;
-form.wnres.value = wnres;
-
+	wlLaser=eval(form.wlLaser.value);
+	wl01=eval(form.wl1.value);
+	wl02=eval(form.wl2.value);
+	wlres=eval(form.wlres.value);
+	wn1=Math.round(10000000*((1/wlLaser)-(1/wl01)));
+	wn2=Math.round(10000000*((1/wlLaser)-(1/wl02)));
+	wnres=Math.round(wlres*10000000/(wl01*wl01));
+	form.wn1.value = wn1;
+	form.wn2.value = wn2;
+	form.wnres.value = wnres;
 }
-
 </script>
+
+<script type="text/javascript">
+function event1(event){
+	wl_to_wn(myform);
+}
+</script>
+
+<script type="text/javascript">
+function event2(event){
+	wn_to_wl(myform);
+}
+</script>
+
+
 
 
 <form name="myform" action="" method="post">
@@ -67,7 +68,6 @@ laser wavelength, nm
 <td align="left">
 wavenumber 1, cm<sup>-1</sup> 
 </td>
-</td>
 <td align="center">
 <input type="text" name="wn1" value="50" size="6" onkeyup="event2(event)">
 </td>
@@ -83,7 +83,6 @@ wavenumber 2, cm<sup>-1</sup>
 <tr>
 <td align="left">
 resolution, cm<sup>-1</sup> 
-</td>
 </td>
 <td align="center">
 <input type="text" name="wnres" value="5" size="6" onkeyup="event2(event)">
@@ -118,9 +117,11 @@ resolution, nm
 
 
  </tr>
-</tbody></table>
+</tbody>
+</table>
 <table width="320">
 <tbody><tr align="right"> <td> &copy;2024 Lightnovo ApS  &ensp; <a href="https://www.lightnovo.com/">www.lightnovo.com</a> </td> </tr>
-</tbody></table>
+</tbody>
+</table>
 </center>
 </html>
