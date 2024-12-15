@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>Lightnovo Raman Shift Calculator</title>
+</head>
+<h1 align = center>Lightnovo Raman Shift Calculator</h1>
+<center>
+
+
+<script type="text/javascript">
+function event1(event){ wl_to_wn(myform);  }
+</script>
+<script type="text/javascript">
+function event2(event){wn_to_wl(myform);  }
+</script>
+<script type="text/javascript">
+function wn_to_wl(form) {
+	wlLaser=eval(form.wlLaser.value);
+	wn1=eval(form.wn1.value);
+	wn2=eval(form.wn2.value);
+	wnres=eval(form.wnres.value);
+	wl1=Math.round(10*(1/((1/wlLaser)-(wn1/10000000))))/10;
+	wl2=Math.round(10*(1/((1/wlLaser)-(wn2/10000000))))/10;
+	wlres=Math.round(100*(wnres*wl1*wl1/10000000))/100;
+	form.wl1.value = wl1;
+	form.wl2.value = wl2;
+	form.wlres.value = wlres;
+}
+</script>
+<script type="text/javascript">
+function wl_to_wn(form) {
+	wlLaser=eval(form.wlLaser.value);
+	wl1=eval(form.wl1.value);
+	wl2=eval(form.wl2.value);
+	wlres=eval(form.wlres.value);
+	wn1=Math.round(10000000*((1/wlLaser)-(1/wl1)));
+	wn2=Math.round(10000000*((1/wlLaser)-(1/wl1));
+	wnres=Math.round(wlres*10000000/(wl1*wl1));
+	form.wn1.value = wn1;
+	form.wn2.value = wn2;
+	form.wnres.value = wnres;
+}
+
+</script>
+
+
+<form name="myform" action="" method="post">
+
+
+
+<table border="0" cellpadding="3" cellspacing="0" width="320" >
+<tbody>
+
+<tr>
+<td width="220" align="left">
+Laser wavelength (nm)
+</td>
+<td width="100" align="center">
+<input type="text" name="wlLaser" value="785" size="6" onkeyup="event2(event)">
+</td>
+</tr>
+
+<tr>
+<td align="left">
+wavenumber 1, cm<sup>-1</sup> 
+</td>
+<td align="center">
+<input type="text" name="wn1" value="50" size="6" onkeyup="event2(event)">
+</td>
+</tr>
+
+<tr>
+<td align="left">
+wavenumber 2, cm<sup>-1</sup> 
+</td>
+<td align="center">
+<input type="text" name="wn2" value="3500" size="6" onkeyup="event2(event)">
+</td>
+</tr>
+
+<tr>
+<td align="left">
+resolution, cm<sup>-1</sup> 
+</td>
+<td align="center">
+<input type="text" name="wnres" value="5" size="6" onkeyup="event2(event)">
+</td>
+</tr>
+
+<tr>
+<td align="left">
+wavelength 1, nm
+</td>
+<td align="center">
+<input type="text" name="wl1" value="788.1" size="6" onkeyup="event1(event)">
+</td>
+</tr>
+
+<tr>
+<td align="left">
+wavelength 2, nm
+</td>
+<td align="center"> 
+<input type="text" name="wl2" value="1082.4" size="6" onkeyup="event1(event)">
+</td>
+</tr>
+
+<tr>
+<td align="left">
+resolution, nm
+</td>
+<td align="center"> 
+<input type="text" name="wlres" value="0.31" size="6" onkeyup="event1(event)">
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+
+
+</tbody></table>
+<table width="320">
+<tbody><tr align="right"> <td> &copy;2024 Lightnovo ApS  &ensp; <a href="https://www.lightnovo.com/">www.lightnovo.com</a> </td> </tr>
+
+</tbody>
+</table>
+</center>
+</body></html>
